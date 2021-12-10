@@ -11,8 +11,10 @@ import (
 )
 
 var (
-	inputN *int    = flag.Int("n", 0, "max items")
-	inputR *string = flag.String("r", "", "region")
+	inputN   *int    = flag.Int("n", 0, "max items")
+	inputR   *string = flag.String("r", "", "region")
+	version  string
+	revision string
 )
 
 func usage() {
@@ -23,6 +25,8 @@ func usage() {
    \__ \__ \ | | | | | | | | \__ \ || (_) | |  | |_| |
    |___/___/_| |_| |_|_| |_|_|___/\__\___/|_|   \__, |
                                                 |___/
+   Version: %s-%s
+
 Usage:
   ssmh [flags] [values]
 Flags:
@@ -38,7 +42,7 @@ Flags:
 Exapmple:
   ssmh -n 10 -r ap-northeast-1
 `
-	fmt.Fprintln(os.Stderr, format)
+	fmt.Fprintln(os.Stderr, fmt.Sprintf(format, version, revision))
 }
 
 func main() {
