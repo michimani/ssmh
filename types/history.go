@@ -8,7 +8,7 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
-type SSMHistoryItem struct {
+type SSMHItem struct {
 	StartDate    *time.Time
 	EndDate      *time.Time
 	Target       string
@@ -17,11 +17,11 @@ type SSMHistoryItem struct {
 	InstanceName string
 }
 
-type SSMHistoryItemList []SSMHistoryItem
+type SSMHItemList []SSMHItem
 
 const dateFmt = time.RFC3339
 
-func (l SSMHistoryItemList) Display() {
+func (l SSMHItemList) Display() {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"#", "Target", "Instance Name", "Session ID", "Reason", "Start Date", "End Date"})
 

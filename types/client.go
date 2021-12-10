@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 )
 
-type SSMHistoryClient struct {
+type SSMHClient struct {
 	SSM *ssm.Client
 	EC2 *ec2.Client
 }

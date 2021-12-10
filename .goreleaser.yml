@@ -24,6 +24,6 @@ brews:
       owner: michimani
       name: homebrew-ssmh
     folder: Formula
-    homepage: 'https://github.com/michimani/ssmhistory'
+    homepage: 'https://github.com/michimani/ssmh'
     description: 'Show the history of connections to Amazon EC2 instances using AWS Session Manager'
     license: 'MIT'

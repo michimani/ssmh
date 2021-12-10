@@ -1,14 +1,14 @@
 package internal
 
 import (
-	"ssmhistory/types"
+	"ssmh/types"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 )
 
-func NewClient(in *types.NewClientInput) (*types.SSMHistoryClient, error) {
+func NewClient(in *types.NewClientInput) (*types.SSMHClient, error) {
 	sc, err := newSSMClient(in)
 	if err != nil {
 		return nil, err
@@ -19,7 +19,7 @@ func NewClient(in *types.NewClientInput) (*types.SSMHistoryClient, error) {
 		return nil, err
 	}
 
-	c := &types.SSMHistoryClient{
+	c := &types.SSMHClient{
 		SSM: sc,
 		EC2: ec,
 	}

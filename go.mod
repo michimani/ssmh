@@ -1,4 +1,4 @@
-module ssmhistory
+module ssmh
 
 go 1.17
 

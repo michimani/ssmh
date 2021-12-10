@@ -3,7 +3,7 @@ package cmd
 import (
 	"context"
 	"errors"
-	"ssmhistory/types"
+	"ssmh/types"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
@@ -13,7 +13,7 @@ import (
 
 var initialToken = "init"
 
-func ListSessionHistory(ctx context.Context, c *types.SSMHistoryClient, p *types.HistoryParams) error {
+func ListSessionHistory(ctx context.Context, c *types.SSMHClient, p *types.HistoryParams) error {
 	list, err := describeSessions(ctx, c, p.MaxResults)
 	if err != nil {
 		return err
@@ -24,8 +24,8 @@ func ListSessionHistory(ctx context.Context, c *types.SSMHistoryClient, p *types
 	return nil
 }
 
-func describeSessions(ctx context.Context, c *types.SSMHistoryClient, maxResults *types.MaxResults) (types.SSMHistoryItemList, error) {
-	list := types.SSMHistoryItemList{}
+func describeSessions(ctx context.Context, c *types.SSMHClient, maxResults *types.MaxResults) (types.SSMHItemList, error) {
+	list := types.SSMHItemList{}
 
 	nextToken := &initialToken
 	for nextToken != nil {
@@ -47,7 +47,7 @@ func describeSessions(ctx context.Context, c *types.SSMHistoryClient, maxResults
 				return nil, err
 			}
 
-			item := types.SSMHistoryItem{
+			item := types.SSMHItem{
 				Target:       aws.ToString(h.Target),
 				InstanceName: instanceName,
 				SessionID:    aws.ToString(h.SessionId),

@@ -5,9 +5,9 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"ssmhistory/cmd"
-	"ssmhistory/internal"
-	"ssmhistory/types"
+	"ssmh/cmd"
+	"ssmh/internal"
+	"ssmh/types"
 )
 
 var (
@@ -19,13 +19,12 @@ var (
 
 func usage() {
 	format := `
-                      _     _     _
-    ___ ___ _ __ ___ | |__ (_)___| |_ ___  _ __ _   _
-   / __/ __| '_ ' _ \| '_ \| / __| __/ _ \| '__| | | |
-   \__ \__ \ | | | | | | | | \__ \ || (_) | |  | |_| |
-   |___/___/_| |_| |_|_| |_|_|___/\__\___/|_|   \__, |
-                                                |___/
-   Version: %s-%s
+                    _
+  ___ ___ _ __ ___ | |__
+ / __/ __| '_ ' _ \| '_ \
+ \__ \__ \ | | | | | | | |
+ |___/___/_| |_| |_|_| |_|
+ Version: %s-%s
 
 Usage:
   ssmh [flags] [values]
